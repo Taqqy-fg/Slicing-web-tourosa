@@ -1,0 +1,47 @@
+<script setup>
+defineProps({
+  waLink: String,
+  siteTagline: String,
+  siteStats: Array
+})
+</script>
+
+<template>
+  <section id="beranda" style="position:relative;background:linear-gradient(180deg,#fbfaf6 0%,#ffffff 100%);overflow:hidden;">
+    <div style="max-width:1240px;margin:0 auto;padding:80px 32px 64px;display:grid;grid-template-columns:1.04fr .96fr;gap:60px;align-items:center;">
+      <div style="animation:flo .7s ease both;">
+        <div style="display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ece4d0;border-radius:100px;padding:7px 14px;margin-bottom:24px;">
+          <span style="width:7px;height:7px;border-radius:50%;background:#c39a4d;"></span>
+          <span style="font-size:12.5px;font-weight:600;color:#7a6b46;letter-spacing:.02em;">Travel partner untuk grup &amp; korporat</span>
+        </div>
+        <h1 style="font-size:55px;line-height:1.05;letter-spacing:-.025em;font-weight:800;color:#13233f;margin:0 0 22px;">Atur perjalanan<br>grup Anda, dari<br><span style="color:#c39a4d;">satu pintu.</span></h1>
+        <p style="font-size:18px;line-height:1.6;color:#52607a;margin:0 0 32px;max-width:480px;">{{ siteTagline }}</p>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:40px;">
+          <a :href="waLink" target="_blank" class="tr-btn" style="background:#15294f;color:#fff;font-size:15px;font-weight:700;padding:15px 26px;border-radius:12px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px -12px rgba(21,41,79,.5);"><i class="ph-fill ph-whatsapp-logo" style="font-size:20px;color:#c39a4d;"></i>Konsultasi via WhatsApp</a>
+          <a href="#layanan" class="tr-btn" style="background:#fff;border:1px solid #d9dbe0;color:#15294f;font-size:15px;font-weight:600;padding:15px 24px;border-radius:12px;display:flex;align-items:center;gap:8px;">Lihat Layanan<i class="ph ph-arrow-down" style="font-size:16px;"></i></a>
+        </div>
+        <div style="display:flex;gap:40px;">
+          <div v-for="(st, idx) in siteStats" :key="idx">
+            <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;">{{ st.n }}</div>
+            <div style="font-size:12.5px;color:#6a7488;font-weight:500;margin-top:2px;">{{ st.l }}</div>
+          </div>
+        </div>
+      </div>
+      <div style="position:relative;animation:flo .9s ease both;">
+        <div style="width:100%;height:480px;display:block;border-radius:20px;box-shadow:0 30px 60px -24px rgba(21,41,79,.4);;background:repeating-linear-gradient(45deg,#efece4,#efece4 9px,#e6e3d8 9px,#e6e3d8 18px);border:1px dashed #d4d0c2;display:flex;align-items:center;justify-content:center;border-radius:20px;overflow:hidden;">
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.4;color:#a8a08c;text-align:center;padding:0 10px;">Foto grup / destinasi (drop di sini)</span>
+        </div>
+        <div style="position:absolute;left:-26px;bottom:34px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 22px 44px -16px rgba(21,41,79,.4);border:1px solid #f0eee6;width:248px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+            <div style="width:34px;height:34px;border-radius:9px;background:#eef3fb;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-airplane-tilt" style="font-size:18px;color:#15294f;"></i></div>
+            <div><div style="font-size:13px;font-weight:700;color:#13233f;">Bali Corporate Gathering</div><div style="font-size:11px;color:#8a93a5;font-family:'IBM Plex Mono',monospace;">INV/TRS/2026/0007</div></div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;padding-top:11px;border-top:1px solid #f0eee6;">
+            <div><div style="font-size:10.5px;color:#8a93a5;font-weight:500;">45 pax · 3 hari</div><div style="font-size:15px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;">Rp 247.500.000</div></div>
+            <span style="font-size:11px;font-weight:700;color:#1f7a5c;background:#e6f4ec;padding:5px 10px;border-radius:7px;">Lunas</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

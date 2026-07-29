@@ -1,0 +1,32 @@
+<script setup>
+defineProps({
+  sOrders: Number,
+  allOrders: Array,
+  goNew: Function
+})
+</script>
+
+<template>
+  <div style="padding:30px 32px;">
+    <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;overflow:hidden;">
+      <div style="padding:18px 22px;border-bottom:1px solid #eef0f3;display:flex;align-items:center;justify-content:space-between;">
+        <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0;">Semua Pesanan <span style="color:#9aa0ad;font-weight:600;">({{ sOrders }})</span></h3>
+        <button @click="goNew" class="tr-btn" style="background:#15294f;color:#fff;font-size:13px;font-weight:700;padding:9px 15px;border-radius:9px;border:none;cursor:pointer;display:flex;align-items:center;gap:7px;"><i class="ph ph-plus" style="font-size:15px;"></i>Buat Pesanan</button>
+      </div>
+      <div style="display:grid;grid-template-columns:1.4fr .95fr .85fr .5fr 1fr .75fr 1.5fr;gap:12px;padding:12px 22px;background:#fafbfc;font-size:11.5px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.04em;">
+        <span>Grup</span><span>Destinasi</span><span>Tanggal</span><span>Pax</span><span>Total</span><span>Status</span><span style="text-align:right;">Aksi</span>
+      </div>
+      <div v-for="(o, idx) in allOrders" :key="idx" style="display:grid;grid-template-columns:1.4fr .95fr .85fr .5fr 1fr .75fr 1.5fr;gap:12px;padding:15px 22px;border-top:1px solid #f1f2f5;align-items:center;">
+        <div style="min-width:0;"><div style="font-size:14px;font-weight:700;color:#13233f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ o.group }}</div><div style="font-size:11px;color:#9aa0ad;font-family:'IBM Plex Mono',monospace;">{{ o.no }}</div></div>
+        <span style="font-size:13.5px;color:#5d6a82;">{{ o.dest }}</span>
+        <span style="font-size:13px;color:#5d6a82;font-family:'IBM Plex Mono',monospace;">{{ o.tripShort }}</span>
+        <span style="font-size:13.5px;color:#5d6a82;font-family:'IBM Plex Mono',monospace;">{{ o.pax }}</span>
+        <span style="font-size:13.5px;font-weight:700;color:#13233f;font-family:'IBM Plex Mono',monospace;">{{ o.total }}</span>
+        <span><span :style="{ color: o.statusColor, background: o.statusBg }" style="font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:7px;">{{ o.status }}</span></span>
+        <span style="text-align:right;display:flex;gap:6px;justify-content:flex-end;">
+          <button @click="o.onDetail" class="tr-btn" style="background:#15294f;color:#fff;border:none;font-size:12.5px;font-weight:700;padding:8px 16px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;"><i class="ph ph-file-text" style="font-size:14px;color:#c39a4d;"></i>Detail</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</template>
