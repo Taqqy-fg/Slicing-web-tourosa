@@ -36,14 +36,48 @@
         <div style="font-size:12.5px;color:#8a93a5;font-weight:500;">MICE · team building · gala dinner</div>
       </div>
     </div>
-    <div data-aos="zoom-in" style="margin-top:22px;background:#13233f;border-radius:18px;padding:26px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-      <div style="display:flex;align-items:center;gap:30px;flex-wrap:wrap;justify-content:center;">
-        <span style="font-size:14px;color:#aeb8cc;font-weight:500;">Juga tersedia:</span>
-        <span style="font-size:14.5px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px;"><i class="ph ph-identification-card" style="color:#c39a4d;font-size:18px;"></i>Visa &amp; Dokumen</span>
-        <span style="font-size:14.5px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px;"><i class="ph ph-van" style="color:#c39a4d;font-size:18px;"></i>Sewa Transport</span>
-        <span style="font-size:14.5px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px;"><i class="ph ph-bowl-food" style="color:#c39a4d;font-size:18px;"></i>Konsumsi &amp; Catering</span>
-        <span style="font-size:14.5px;color:#fff;font-weight:600;display:flex;align-items:center;gap:8px;"><i class="ph ph-shield-check" style="color:#c39a4d;font-size:18px;"></i>Travel Insurance</span>
+    <div data-aos="zoom-in" class="extra-services-container">
+      <div class="extra-services-list">
+        <span class="es-label">Juga tersedia:</span>
+        <span class="es-item"><i class="ph ph-identification-card" style="color:#c39a4d;font-size:18px;"></i>Visa &amp; Dokumen</span>
+        <span class="es-item"><i class="ph ph-van" style="color:#c39a4d;font-size:18px;"></i>Sewa Transport</span>
+        <span class="es-item"><i class="ph ph-bowl-food" style="color:#c39a4d;font-size:18px;"></i>Konsumsi &amp; Catering</span>
+        <span class="es-item"><i class="ph ph-shield-check" style="color:#c39a4d;font-size:18px;"></i>Travel Insurance</span>
       </div>
     </div>
   </section>
 </template>
+
+<style scoped>
+.extra-services-container {
+  margin-top: 22px;
+  background: #13233f;
+  border-radius: 18px;
+  padding: 26px 32px;
+}
+.extra-services-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+}
+.es-label {
+  font-size: 14px;
+  color: #aeb8cc;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.es-item {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.es-item i {
+  font-size: 20px;
+}
+
+</style>

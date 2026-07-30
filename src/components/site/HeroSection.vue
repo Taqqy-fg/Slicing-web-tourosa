@@ -30,7 +30,7 @@ const getSuffix = (str) => {
           <a :href="waLink" target="_blank" class="tr-btn" style="background:#15294f;color:#fff;font-size:15px;font-weight:700;padding:15px 26px;border-radius:12px;display:flex;align-items:center;gap:10px;box-shadow:0 14px 30px -12px rgba(21,41,79,.5);"><i class="ph-fill ph-whatsapp-logo" style="font-size:20px;color:#c39a4d;"></i>Konsultasi WhatsApp</a>
           <a href="#layanan" class="tr-btn" style="background:#fff;border:1px solid #d9dbe0;color:#15294f;font-size:15px;font-weight:600;padding:15px 24px;border-radius:12px;display:flex;align-items:center;gap:8px;">Lihat Layanan<i class="ph ph-arrow-down" style="font-size:16px;"></i></a>
         </div>
-        <div style="display:flex;gap:40px;flex-wrap:wrap;">
+        <div class="hero-stats">
           <div v-for="(st, idx) in siteStats" :key="idx" class="stat-box">
             <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;">
               <CountUp :end-val="getNumericVal(st.n)" :options="{ suffix: getSuffix(st.n), duration: 2.5 }" />
@@ -80,6 +80,20 @@ const getSuffix = (str) => {
   100% {
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(195, 154, 77, 0);
+  }
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .hero-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 16px;
   }
 }
 </style>
