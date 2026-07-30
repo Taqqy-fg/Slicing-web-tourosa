@@ -5,7 +5,9 @@
   <section id="tentang" style="background:#fbfaf6;border-top:1px solid #f0efe8;">
     <div class="grid-about" style="max-width:1240px;margin:0 auto;padding:96px 32px;">
       <div data-aos="fade-right" style="position:relative;">
-        <div class="about-img-box" style="width:100%;height:440px;display:block;border-radius:20px;box-shadow:0 24px 50px -22px rgba(21,41,79,.34);;background:repeating-linear-gradient(45deg,#efece4,#efece4 9px,#e6e3d8 9px,#e6e3d8 18px);border:1px dashed #d4d0c2;display:flex;align-items:center;justify-content:center;border-radius:20px;overflow:hidden;"><span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.4;color:#a8a08c;text-align:center;padding:0 10px;">Foto tim / kantor Tourosa</span></div>
+        <div class="about-img-box" style="width:100%;height:440px;border-radius:20px;box-shadow:0 24px 50px -22px rgba(21,41,79,.34);overflow:hidden;">
+          <img src="/assets/foto_tim_kantor_tourosa.png" alt="Tim & Kantor Tourosa" style="width:100%;height:100%;object-fit:cover;display:block;">
+        </div>
         <div data-aos="zoom-in" data-aos-delay="300" style="position:absolute;right:-22px;top:34px;background:#c39a4d;color:#fff;border-radius:14px;padding:16px 20px;box-shadow:0 16px 36px -14px rgba(195,154,77,.7);">
           <div style="font-size:26px;font-weight:800;font-family:'IBM Plex Mono',monospace;line-height:1;">98%</div>
           <div style="font-size:11.5px;font-weight:600;opacity:.92;margin-top:4px;">Klien kembali<br>memesan</div>

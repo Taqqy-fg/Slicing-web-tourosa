@@ -40,8 +40,8 @@ const getSuffix = (str) => {
         </div>
       </div>
       <div data-aos="fade-left" data-aos-delay="200" style="position:relative;">
-        <div class="hero-img-box" style="width:100%;height:480px;display:block;border-radius:20px;box-shadow:0 30px 60px -24px rgba(21,41,79,.4);background:repeating-linear-gradient(45deg,#efece4,#efece4 9px,#e6e3d8 9px,#e6e3d8 18px);border:1px dashed #d4d0c2;display:flex;align-items:center;justify-content:center;overflow:hidden;">
-            <span style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;line-height:1.4;color:#a8a08c;text-align:center;padding:0 10px;">Foto grup / destinasi (drop di sini)</span>
+        <div class="hero-img-box" style="width:100%;height:480px;border-radius:20px;box-shadow:0 30px 60px -24px rgba(21,41,79,.4);overflow:hidden;">
+            <img src="/assets/Foto_grup_destinasi.png" alt="Foto grup destinasi Tourosa" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
         <div data-aos="zoom-in" data-aos-delay="500" style="position:absolute;left:-16px;bottom:34px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 22px 44px -16px rgba(21,41,79,.4);border:1px solid #f0eee6;width:248px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
