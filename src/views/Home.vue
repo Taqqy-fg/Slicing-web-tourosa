@@ -11,6 +11,7 @@ import ProcessSection from '../components/site/ProcessSection.vue'
 import TestimonialSection from '../components/site/TestimonialSection.vue'
 import CtaSection from '../components/site/CtaSection.vue'
 import SiteFooter from '../components/site/SiteFooter.vue'
+import ScrollToTop from '../components/site/ScrollToTop.vue'
 
 const { state } = useDashboardData()
 const site = state.site
@@ -34,5 +35,6 @@ const waDisplay = computed(() => '+' + waNum.value.replace(/^(\d{2})(\d{3,4})(\d
     <TestimonialSection />
     <CtaSection :wa-link="waLink" :wa-display="waDisplay" />
     <SiteFooter :wa-display="waDisplay" :site-email="site.email" :site-address="site.address" />
+    <ScrollToTop />
   </div>
 </template>
