@@ -88,8 +88,8 @@ const navigateTo = (id) => {
         <a href="#proses" @click.prevent="navigateTo('proses')" class="offcanvas-link">Cara Kerja</a>
         <a href="#kontak" @click.prevent="navigateTo('kontak')" class="offcanvas-link">Kontak</a>
       </nav>
-
-      <div class="offcanvas-actions">
+      <!-- Action buttons — di atas nav links -->
+    <div class="offcanvas-actions">
         <button @click="goDash" class="offcanvas-btn-outline">
           <i class="ph ph-squares-four"></i> Dashboard Admin
         </button>
@@ -97,6 +97,7 @@ const navigateTo = (id) => {
           <i class="ph-fill ph-whatsapp-logo" style="color:#c39a4d;"></i> WhatsApp
         </a>
       </div>
+
     </div>
   </Transition>
 </template>
@@ -169,7 +170,7 @@ const navigateTo = (id) => {
   right: 0;
   width: 300px;
   max-width: 85vw;
-  height: 100vh;
+  height: 150vh;
   background: #fff;
   z-index: 99;
   display: flex;
@@ -205,11 +206,18 @@ const navigateTo = (id) => {
 }
 .offcanvas-close:hover { background: #e8e9ee; }
 
+.offcanvas-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px 24px;
+  border-bottom: 1px solid #f0efe8;
+}
+
 .offcanvas-links {
   display: flex;
   flex-direction: column;
   padding: 12px 0;
-  flex: 1;
 }
 .offcanvas-link {
   font-size: 15px;
@@ -226,13 +234,6 @@ const navigateTo = (id) => {
   border-left-color: #c39a4d;
 }
 
-.offcanvas-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 20px 24px;
-  border-top: 1px solid #f0efe8;
-}
 .offcanvas-btn-outline {
   display: flex;
   align-items: center;
