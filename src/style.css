@@ -1,10 +1,18 @@
 * { box-sizing: border-box; }
 
-html, body { 
+html { 
   margin: 0; 
-  padding: 0; 
-  overflow-x: hidden; /* Mencegah horizontal scroll */
-  width: 100%;        /* Memastikan lebar maksimal layar */
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: scroll; /* Satu scrollbar tetap di sini */
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: visible; /* Tidak ada scrollbar kedua */
+  width: 100%;
 }
 
 body {
@@ -53,6 +61,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* Responsive Dashboard Utilities */
+.table-scroll {
+  width: 100%;
+  overflow-x: auto;
+}
+.min-w-table {
+  min-width: 800px;
+}
+
 .show-mobile-flex {
   display: none !important;
 }
@@ -127,9 +143,25 @@ a { text-decoration: none; color: inherit; }
     justify-content: space-between;
   }
 
-  /* Data Table Scroll */
-  .table-scroll {
-    width: 100%;
+  /* Stats Grid: 2 columns on mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .stats-grid > div {
+    padding: 16px !important;
+    border-radius: 12px !important;
+  }
+  .stat-number {
+    font-size: 22px !important;
+  }
+  .stat-label {
+    font-size: 11px !important;
+  }
+
+  /* Data Table Scroll overrides for mobile */
+  .min-w-table {
+    min-width: 0 !important;
   }
   
   /* Card Layout for Tables */

@@ -14,7 +14,7 @@ defineProps({
 
 <template>
   <div v-if="detail" class="p-mobile" style="padding:30px 32px;max-width:1060px;margin:0 auto;">
-    <div class="flex-col-mobile" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;">
       <button @click="goList" class="tr-btn" style="background:#fff;border:1px solid #e2e4ea;color:#5d6a82;font-size:13.5px;font-weight:600;padding:10px 16px;border-radius:10px;cursor:pointer;display:flex;align-items:center;gap:8px;"><i class="ph ph-arrow-left" style="font-size:16px;"></i>Kembali</button>
       <button @click="goInvoiceFromDetail" class="tr-btn" style="background:#15294f;color:#fff;font-size:13.5px;font-weight:700;padding:10px 20px;border-radius:10px;border:none;cursor:pointer;display:flex;align-items:center;gap:8px;"><i class="ph ph-receipt" style="font-size:17px;color:#c39a4d;"></i>Lihat / Cetak Invoice</button>
     </div>

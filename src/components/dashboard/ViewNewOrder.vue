@@ -13,7 +13,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="p-mobile grid-cols-1-mobile" style="padding:30px 32px;display:grid;grid-template-columns:1fr 384px;gap:24px;align-items:start;">
+  <div class="p-mobile grid-cols-1-mobile" style="padding:30px 32px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:18px;">
       <!-- group info -->
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:24px;">
@@ -49,9 +49,9 @@ defineProps({
             <option v-for="(vo, vi) in r.vendorOptions" :key="vi" :value="vo">{{ vo }}</option>
           </select>
           <input class="col-full-mobile" :value="r.desc" @input="r.onDesc" placeholder="Deskripsi (cth. Tiket PP)" style="width:100%;padding:9px 11px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;">
-          <input class="col-third-mobile" :value="r.qty" @input="r.onQty" type="number" placeholder="Qty" style="width:100%;padding:9px 8px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:center;font-family:'IBM Plex Mono',monospace;">
-          <input class="col-third-mobile text-right-mobile" :value="r.cost" @input="r.onCost" type="number" placeholder="Harga Beli" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#5d6a82;background:#fafbfc;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
-          <input class="col-third-mobile text-right-mobile" :value="r.price" @input="r.onPrice" type="number" placeholder="Harga Jual" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
+          <input class="col-full-mobile" :value="r.qty" @input="r.onQty" type="number" placeholder="Qty" style="width:100%;padding:9px 8px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:center;font-family:'IBM Plex Mono',monospace;">
+          <input class="col-half-mobile text-right-mobile" :value="r.cost" @input="r.onCost" type="number" placeholder="Harga Beli" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#5d6a82;background:#fafbfc;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
+          <input class="col-half-mobile text-right-mobile" :value="r.price" @input="r.onPrice" type="number" placeholder="Harga Jual" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
           <span class="col-full-mobile text-right-mobile" style="font-size:14px;font-weight:700;color:#13233f;text-align:right;font-family:'IBM Plex Mono',monospace;">Sub: {{ r.lineF }}</span>
             <button class="del-btn-mobile tr-btn" @click="r.onRemove" style="background:none;border:none;cursor:pointer;color:#c2603a;display:flex;align-items:center;justify-content:center;padding:6px;border-radius:7px;"><i class="ph ph-trash" style="font-size:16px;"></i></button>
           </div>

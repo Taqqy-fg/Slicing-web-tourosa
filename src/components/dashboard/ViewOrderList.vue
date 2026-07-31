@@ -9,9 +9,8 @@ defineProps({
 <template>
   <div class="p-mobile" style="padding:30px 32px;">
     <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
-      <div style="padding:18px 22px;border-bottom:1px solid #eef0f3;display:flex;align-items:center;justify-content:space-between;">
+      <div style="padding:18px 22px;border-bottom:1px solid #eef0f3;display:flex;align-items:center;">
         <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0;">Semua Pesanan <span style="color:#9aa0ad;font-weight:600;">({{ sOrders }})</span></h3>
-        <button @click="goNew" class="tr-btn" style="background:#15294f;color:#fff;font-size:13px;font-weight:700;padding:9px 15px;border-radius:9px;border:none;cursor:pointer;display:flex;align-items:center;gap:7px;"><i class="ph ph-plus" style="font-size:15px;"></i>Buat Pesanan</button>
       </div>
       <div class="table-scroll">
         <div class="min-w-table">

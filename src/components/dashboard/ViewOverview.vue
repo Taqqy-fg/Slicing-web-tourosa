@@ -13,26 +13,26 @@ defineProps({
 
 <template>
   <div class="p-mobile" style="padding:30px 32px;">
-    <div class="grid-cols-2-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px;">
+    <div class="stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px;">
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:11px;background:#eef3fb;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-shopping-bag-open" style="font-size:21px;color:#15294f;"></i></div></div>
-        <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sOrders }}</div>
-        <div style="font-size:13px;color:#7a8499;font-weight:500;margin-top:7px;">Total pesanan</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div style="width:38px;height:38px;border-radius:11px;background:#eef3fb;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-shopping-bag-open" style="font-size:19px;color:#15294f;"></i></div></div>
+        <div class="stat-number" style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sOrders }}</div>
+        <div class="stat-label" style="font-size:12px;color:#7a8499;font-weight:500;margin-top:6px;">Total pesanan</div>
       </div>
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:11px;background:#f6efe0;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-users-three" style="font-size:21px;color:#c39a4d;"></i></div></div>
-        <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sPax }}</div>
-        <div style="font-size:13px;color:#7a8499;font-weight:500;margin-top:7px;">Total peserta (pax)</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div style="width:38px;height:38px;border-radius:11px;background:#f6efe0;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-users-three" style="font-size:19px;color:#c39a4d;"></i></div></div>
+        <div class="stat-number" style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sPax }}</div>
+        <div class="stat-label" style="font-size:12px;color:#7a8499;font-weight:500;margin-top:6px;">Total peserta (pax)</div>
       </div>
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:11px;background:#e8f4ed;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-wallet" style="font-size:21px;color:#1f7a5c;"></i></div></div>
-        <div style="font-size:24px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1.1;">{{ sRevenue }}</div>
-        <div style="font-size:13px;color:#7a8499;font-weight:500;margin-top:7px;">Nilai transaksi</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div style="width:38px;height:38px;border-radius:11px;background:#e8f4ed;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-wallet" style="font-size:19px;color:#1f7a5c;"></i></div></div>
+        <div class="stat-number" style="font-size:22px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1.1;">{{ sRevenue }}</div>
+        <div class="stat-label" style="font-size:12px;color:#7a8499;font-weight:500;margin-top:6px;">Nilai transaksi</div>
       </div>
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:11px;background:#fbeee4;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-clock-countdown" style="font-size:21px;color:#c2603a;"></i></div></div>
-        <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sActive }}</div>
-        <div style="font-size:13px;color:#7a8499;font-weight:500;margin-top:7px;">Pesanan berjalan</div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;"><div style="width:38px;height:38px;border-radius:11px;background:#fbeee4;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-clock-countdown" style="font-size:19px;color:#c2603a;"></i></div></div>
+        <div class="stat-number" style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sActive }}</div>
+        <div class="stat-label" style="font-size:12px;color:#7a8499;font-weight:500;margin-top:6px;">Pesanan berjalan</div>
       </div>
     </div>
 

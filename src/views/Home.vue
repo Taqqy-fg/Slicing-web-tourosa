@@ -25,7 +25,7 @@ const waDisplay = computed(() => '+' + waNum.value.replace(/^(\d{2})(\d{3,4})(\d
 </script>
 
 <template>
-  <div style="min-height:100vh;background:#ffffff;">
+  <div style="background:#ffffff;">
     <SiteHeader :wa-link="waLink" />
     <HeroSection :site-tagline="site.tagline" :site-stats="site.stats" :wa-link="waLink" />
     <TrustStrip :site-clients="site.clients" />

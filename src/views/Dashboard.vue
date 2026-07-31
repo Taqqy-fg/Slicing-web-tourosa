@@ -352,10 +352,10 @@ const addCat = () => { state.catalog.push({ cat: 'Kategori Baru', items: [] }) }
 </script>
 
 <template>
-  <div style="display:flex;min-height:100vh;background:#f4f5f8;position:relative;overflow:hidden;">
+  <div style="display:flex;position:fixed;top:0;left:0;right:0;bottom:0;background:#f4f5f8;overflow:hidden;">
     <DashSidebar :nav-items="navItems" :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
     <div class="sidebar-backdrop" :class="{ open: isSidebarOpen }" @click="isSidebarOpen = false"></div>
-    
+
     <main style="flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;overflow-y:auto;">
       <DashTopbar 
         :page-title="pm[0]" 
@@ -365,8 +365,8 @@ const addCat = () => { state.catalog.push({ cat: 'Kategori Baru', items: [] }) }
         @toggle-sidebar="isSidebarOpen = !isSidebarOpen"
       />
 
-      <div style="flex:1;overflow:auto;">
-        
+      <div style="flex:1;">
+
         <ViewOverview v-if="state.dashView === 'overview'" 
           :s-orders="sOrders"
           :s-pax="sPax"
