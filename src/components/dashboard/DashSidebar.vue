@@ -2,8 +2,11 @@
 import { useRouter } from 'vue-router'
 
 defineProps({
-  navItems: Array
+  navItems: Array,
+  isOpen: Boolean
 })
+
+const emit = defineEmits(['close'])
 
 const router = useRouter()
 const goSite = () => {
@@ -12,13 +15,18 @@ const goSite = () => {
 </script>
 
 <template>
-  <aside data-print="hide" style="width:252px;flex-shrink:0;background:#0d1b30;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;">
-    <div style="padding:24px 22px 22px;border-bottom:1px solid #1b2942;">
-      <img src="/assets/tourosa-logo-white.png" alt="Tourosa" style="height:21px;width:auto;display:block;">
-      <div style="font-size:11px;color:#7c89a3;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-top:9px;">Admin Dashboard</div>
+  <aside class="dash-sidebar" :class="{ open: isOpen }" data-print="hide" style="width:252px;flex-shrink:0;background:#0d1b30;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;">
+    <div style="padding:24px 22px 22px;border-bottom:1px solid #1b2942;display:flex;justify-content:space-between;align-items:center;">
+      <div>
+        <img src="/assets/tourosa-logo-white.png" alt="Tourosa" style="height:21px;width:auto;display:block;">
+        <div style="font-size:11px;color:#7c89a3;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-top:9px;">Admin Dashboard</div>
+      </div>
+      <button class="show-mobile-flex" @click="emit('close')" style="background:none;border:none;color:#fff;cursor:pointer;padding:4px;">
+        <i class="ph ph-x" style="font-size:24px;"></i>
+      </button>
     </div>
     <nav style="padding:16px 14px;display:flex;flex-direction:column;gap:4px;flex:1;">
-      <button v-for="(n, idx) in navItems" :key="idx" @click="n.onClick" class="tr-nav" :style="{ background: n.bg, color: n.color, display:'flex', alignItems:'center', gap:'12px', padding:'11px 14px', border:'none', borderRadius:'10px', cursor:'pointer', textAlign:'left', width:'100%', fontSize:'14px', fontWeight:'600' }">
+      <button v-for="(n, idx) in navItems" :key="idx" @click="n.onClick(); emit('close')" class="tr-nav" :style="{ background: n.bg, color: n.color, display:'flex', alignItems:'center', gap:'12px', padding:'11px 14px', border:'none', borderRadius:'10px', cursor:'pointer', textAlign:'left', width:'100%', fontSize:'14px', fontWeight:'600' }">
         <i :class="['ph', n.icon]" style="font-size:19px;"></i>{{ n.label }}
       </button>
     </nav>

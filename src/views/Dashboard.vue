@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useDashboardData } from '../composables/useDashboardData'
 
 import DashSidebar from '../components/dashboard/DashSidebar.vue'
@@ -13,6 +13,8 @@ import ViewReport from '../components/dashboard/ViewReport.vue'
 import ViewSettings from '../components/dashboard/ViewSettings.vue'
 
 const { state, blankForm, fmt, fmtNum, fmtDate, fmtShort, calc, statusMeta } = useDashboardData()
+
+const isSidebarOpen = ref(false)
 
 // Routing / View toggles inside dashboard
 const setView = (view) => {
@@ -350,15 +352,17 @@ const addCat = () => { state.catalog.push({ cat: 'Kategori Baru', items: [] }) }
 </script>
 
 <template>
-  <div style="display:flex;min-height:100vh;background:#f4f5f8;">
-    <DashSidebar :nav-items="navItems" />
+  <div style="display:flex;min-height:100vh;background:#f4f5f8;position:relative;overflow:hidden;">
+    <DashSidebar :nav-items="navItems" :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
+    <div class="sidebar-backdrop" :class="{ open: isSidebarOpen }" @click="isSidebarOpen = false"></div>
     
-    <main style="flex:1;min-width:0;display:flex;flex-direction:column;">
+    <main style="flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;overflow-y:auto;">
       <DashTopbar 
         :page-title="pm[0]" 
         :page-sub="pm[1]" 
         :today-f="todayF" 
         :go-new="goNew" 
+        @toggle-sidebar="isSidebarOpen = !isSidebarOpen"
       />
 
       <div style="flex:1;overflow:auto;">

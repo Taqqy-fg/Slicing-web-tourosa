@@ -12,8 +12,8 @@ defineProps({
 </script>
 
 <template>
-  <div style="padding:30px 32px;">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px;">
+  <div class="p-mobile" style="padding:30px 32px;">
+    <div class="grid-cols-2-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:26px;">
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;"><div style="width:42px;height:42px;border-radius:11px;background:#eef3fb;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-shopping-bag-open" style="font-size:21px;color:#15294f;"></i></div></div>
         <div style="font-size:30px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1;">{{ sOrders }}</div>
@@ -36,22 +36,24 @@ defineProps({
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 320px;gap:18px;">
-      <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;overflow:hidden;">
+    <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1fr 320px;gap:18px;">
+      <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;">
         <div style="padding:18px 22px;border-bottom:1px solid #eef0f3;display:flex;align-items:center;justify-content:space-between;">
           <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0;">Pesanan Terbaru</h3>
           <button @click="goList" class="tr-link" style="font-size:13px;font-weight:600;color:#c39a4d;background:none;border:none;cursor:pointer;">Lihat semua →</button>
         </div>
-        <div>
-          <div style="display:grid;grid-template-columns:1.6fr 1fr .7fr 1fr .8fr;gap:12px;padding:11px 22px;background:#fafbfc;font-size:11.5px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.04em;">
-            <span>Grup</span><span>Destinasi</span><span>Pax</span><span>Nilai</span><span>Status</span>
-          </div>
-          <div v-for="(o, idx) in recentOrders" :key="idx" @click="o.onDetail" class="tr-nav" style="display:grid;grid-template-columns:1.6fr 1fr .7fr 1fr .8fr;gap:12px;padding:14px 22px;border-top:1px solid #f1f2f5;cursor:pointer;align-items:center;">
-            <div style="min-width:0;"><div style="font-size:14px;font-weight:700;color:#13233f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ o.group }}</div><div style="font-size:11px;color:#9aa0ad;font-family:'IBM Plex Mono',monospace;">{{ o.no }}</div></div>
-            <span style="font-size:13.5px;color:#5d6a82;">{{ o.dest }}</span>
-            <span style="font-size:13.5px;color:#5d6a82;font-family:'IBM Plex Mono',monospace;">{{ o.pax }}</span>
-            <span style="font-size:13.5px;font-weight:700;color:#13233f;font-family:'IBM Plex Mono',monospace;">{{ o.total }}</span>
-            <span><span :style="{ color: o.statusColor, background: o.statusBg }" style="font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:7px;">{{ o.status }}</span></span>
+        <div class="table-scroll">
+          <div class="min-w-table">
+            <div class="table-header-mobile" style="display:grid;grid-template-columns:1.6fr 1fr .7fr 1fr .8fr;gap:12px;padding:11px 22px;background:#fafbfc;font-size:11.5px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.04em;">
+              <span>Grup</span><span>Destinasi</span><span>Pax</span><span>Nilai</span><span>Status</span>
+            </div>
+            <div v-for="(o, idx) in recentOrders" :key="idx" @click="o.onDetail" class="tr-nav table-row-mobile" style="display:grid;grid-template-columns:1.6fr 1fr .7fr 1fr .8fr;gap:12px;padding:14px 22px;border-top:1px solid #f1f2f5;cursor:pointer;align-items:center;">
+              <div class="col-full-mobile" style="min-width:0;"><div style="font-size:14px;font-weight:700;color:#13233f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ o.group }}</div><div style="font-size:11px;color:#9aa0ad;font-family:'IBM Plex Mono',monospace;">{{ o.no }}</div></div>
+              <span class="col-half-mobile" style="font-size:13.5px;color:#5d6a82;">📍 {{ o.dest }}</span>
+              <span class="col-half-mobile" style="font-size:13.5px;color:#5d6a82;font-family:'IBM Plex Mono',monospace;">👥 {{ o.pax }}</span>
+              <span class="col-half-mobile" style="font-size:13.5px;font-weight:700;color:#13233f;font-family:'IBM Plex Mono',monospace;">{{ o.total }}</span>
+              <span class="col-half-mobile"><span :style="{ color: o.statusColor, background: o.statusBg }" style="font-size:11.5px;font-weight:700;padding:5px 10px;border-radius:7px;">{{ o.status }}</span></span>
+            </div>
           </div>
         </div>
       </div>

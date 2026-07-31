@@ -10,8 +10,8 @@ defineProps({
 </script>
 
 <template>
-  <div style="padding:30px 32px;">
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px;">
+  <div class="p-mobile" style="padding:30px 32px;">
+    <div class="grid-cols-2-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px;">
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
         <div style="width:42px;height:42px;border-radius:11px;background:#eef3fb;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><i class="ph-fill ph-wallet" style="font-size:21px;color:#15294f;"></i></div>
         <div style="font-size:22px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1.1;">{{ repRevenueF }}</div>
@@ -33,7 +33,7 @@ defineProps({
         <div style="font-size:13px;color:#7a8499;font-weight:500;margin-top:7px;">Margin rata-rata</div>
       </div>
     </div>
-    <div style="display:grid;grid-template-columns:1.25fr .9fr;gap:18px;">
+    <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1.25fr .9fr;gap:18px;">
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;overflow:hidden;">
         <div style="padding:18px 22px;border-bottom:1px solid #eef0f3;"><h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0;">Profit per Pesanan</h3></div>
         <div style="padding:8px 22px 16px;">

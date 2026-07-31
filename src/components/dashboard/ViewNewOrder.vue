@@ -13,13 +13,13 @@ defineProps({
 </script>
 
 <template>
-  <div style="padding:30px 32px;display:grid;grid-template-columns:1fr 384px;gap:24px;align-items:start;">
+  <div class="p-mobile grid-cols-1-mobile" style="padding:30px 32px;display:grid;grid-template-columns:1fr 384px;gap:24px;align-items:start;">
     <div style="display:flex;flex-direction:column;gap:18px;">
       <!-- group info -->
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:24px;">
         <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0 0 4px;display:flex;align-items:center;gap:9px;"><i class="ph ph-users-three" style="color:#c39a4d;font-size:20px;"></i>Informasi Grup</h3>
         <p style="font-size:13px;color:#8a93a5;margin:0 0 20px;">Data utama pemesan dan perjalanan.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
           <div style="grid-column:span 2;"><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Nama Grup / Instansi</label><input v-model="f.group" placeholder="cth. PT Sinar Abadi — Annual Gathering" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">PIC / Penanggung Jawab</label><input v-model="f.pic" placeholder="cth. Bpk. Rendra (HRD)" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">No. HP / WhatsApp</label><input v-model="f.contact" placeholder="cth. 0812-3344-5566" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;"></div>
@@ -35,29 +35,33 @@ defineProps({
           <div><h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0 0 2px;display:flex;align-items:center;gap:9px;"><i class="ph ph-list-plus" style="color:#c39a4d;font-size:20px;"></i>Rincian Item</h3><p style="font-size:13px;color:#8a93a5;margin:0;">Tiket, hotel, tour, konsumsi, dan lainnya.</p></div>
           <button @click="addItem" class="tr-btn" style="background:#eef3fb;color:#15294f;border:1px solid #d6e1f2;font-size:13px;font-weight:700;padding:9px 14px;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:6px;"><i class="ph ph-plus" style="font-size:15px;"></i>Tambah Item</button>
         </div>
-        <div style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;padding:0 2px 9px;font-size:11px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.03em;">
-          <span>Kategori</span><span>Vendor/Produk</span><span>Deskripsi</span><span>Qty</span><span>Beli</span><span>Jual</span><span style="text-align:right;">Jumlah</span><span></span>
-        </div>
-        <div v-for="(r, idx) in itemRows" :key="idx" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;align-items:center;padding:6px 2px;">
-          <select @change="r.onCat" :value="r.cat" style="width:100%;padding:9px 7px;border:1px solid #d8dce4;border-radius:8px;font-size:12.5px;color:#1a2235;background:#fff;outline:none;">
+        <div class="table-scroll">
+          <div class="min-w-table">
+            <div class="table-header-mobile" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;padding:0 2px 9px;font-size:11px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.03em;">
+              <span>Kategori</span><span>Vendor/Produk</span><span>Deskripsi</span><span>Qty</span><span>Beli</span><span>Jual</span><span style="text-align:right;">Jumlah</span><span></span>
+            </div>
+            <div v-for="(r, idx) in itemRows" :key="idx" class="table-row-mobile" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;align-items:center;padding:6px 2px;">
+          <select class="col-half-mobile" @change="r.onCat" :value="r.cat" style="width:100%;padding:9px 7px;border:1px solid #d8dce4;border-radius:8px;font-size:12.5px;color:#1a2235;background:#fff;outline:none;">
             <option v-for="(co, ci) in catOptions" :key="ci" :value="co">{{ co }}</option>
           </select>
-          <select @change="r.onVendor" :value="r.vendor" style="width:100%;padding:9px 7px;border:1px solid #d8dce4;border-radius:8px;font-size:12.5px;color:#1a2235;background:#fafbfc;outline:none;">
-            <option value="">Pilih…</option>
+          <select class="col-half-mobile" @change="r.onVendor" :value="r.vendor" style="width:100%;padding:9px 7px;border:1px solid #d8dce4;border-radius:8px;font-size:12.5px;color:#1a2235;background:#fafbfc;outline:none;">
+            <option value="">Pilih Vendor…</option>
             <option v-for="(vo, vi) in r.vendorOptions" :key="vi" :value="vo">{{ vo }}</option>
           </select>
-          <input :value="r.desc" @input="r.onDesc" placeholder="cth. PP Jakarta–Denpasar (Garuda)" style="width:100%;padding:9px 11px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;">
-          <input :value="r.qty" @input="r.onQty" type="number" placeholder="0" style="width:100%;padding:9px 8px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:center;font-family:'IBM Plex Mono',monospace;">
-          <input :value="r.cost" @input="r.onCost" type="number" placeholder="0" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#5d6a82;background:#fafbfc;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
-          <input :value="r.price" @input="r.onPrice" type="number" placeholder="0" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
-          <span style="font-size:13px;font-weight:700;color:#13233f;text-align:right;font-family:'IBM Plex Mono',monospace;">{{ r.lineF }}</span>
-          <button @click="r.onRemove" class="tr-btn" style="background:none;border:none;cursor:pointer;color:#c2603a;display:flex;align-items:center;justify-content:center;padding:6px;border-radius:7px;"><i class="ph ph-trash" style="font-size:16px;"></i></button>
+          <input class="col-full-mobile" :value="r.desc" @input="r.onDesc" placeholder="Deskripsi (cth. Tiket PP)" style="width:100%;padding:9px 11px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;">
+          <input class="col-third-mobile" :value="r.qty" @input="r.onQty" type="number" placeholder="Qty" style="width:100%;padding:9px 8px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:center;font-family:'IBM Plex Mono',monospace;">
+          <input class="col-third-mobile text-right-mobile" :value="r.cost" @input="r.onCost" type="number" placeholder="Harga Beli" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#5d6a82;background:#fafbfc;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
+          <input class="col-third-mobile text-right-mobile" :value="r.price" @input="r.onPrice" type="number" placeholder="Harga Jual" style="width:100%;padding:9px 9px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#1a2235;background:#fff;outline:none;text-align:right;font-family:'IBM Plex Mono',monospace;">
+          <span class="col-full-mobile text-right-mobile" style="font-size:14px;font-weight:700;color:#13233f;text-align:right;font-family:'IBM Plex Mono',monospace;">Sub: {{ r.lineF }}</span>
+            <button class="del-btn-mobile tr-btn" @click="r.onRemove" style="background:none;border:none;cursor:pointer;color:#c2603a;display:flex;align-items:center;justify-content:center;padding:6px;border-radius:7px;"><i class="ph ph-trash" style="font-size:16px;"></i></button>
+          </div>
         </div>
       </div>
+    </div>
       <!-- adjustments -->
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:24px;">
         <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0 0 18px;display:flex;align-items:center;gap:9px;"><i class="ph ph-sliders-horizontal" style="color:#c39a4d;font-size:20px;"></i>Diskon, Pajak &amp; Pembayaran</h3>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Diskon (Rp)</label><input v-model="f.discount" type="number" placeholder="0" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;font-family:'IBM Plex Mono',monospace;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Pajak / Service (%)</label><input v-model="f.taxPercent" type="number" placeholder="11" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;font-family:'IBM Plex Mono',monospace;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">DP (%)</label><input v-model="f.dpPercent" type="number" placeholder="50" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;font-family:'IBM Plex Mono',monospace;"></div>

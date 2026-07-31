@@ -20,8 +20,8 @@ defineProps({
 </script>
 
 <template>
-  <div style="padding:30px 32px;max-width:1000px;margin:0 auto;">
-    <div style="display:inline-flex;background:#fff;border:1px solid #e8e9ee;border-radius:12px;padding:5px;margin-bottom:22px;gap:4px;">
+  <div class="p-mobile" style="padding:30px 32px;max-width:1000px;margin:0 auto;">
+    <div style="display:inline-flex;flex-wrap:wrap;background:#fff;border:1px solid #e8e9ee;border-radius:12px;padding:5px;margin-bottom:22px;gap:4px;">
       <button @click="tabWebsite" class="tr-btn" :style="{ background: tabWebBg, color: tabWebColor, border:'none', borderRadius:'9px', cursor:'pointer', fontSize:'13.5px', fontWeight:'700', padding:'9px 18px', display:'flex', alignItems:'center', gap:'7px' }"><i class="ph ph-globe-hemisphere-west" style="font-size:16px;"></i>Konten Website</button>
       <button @click="tabCatalog" class="tr-btn" :style="{ background: tabCatBg, color: tabCatColor, border:'none', borderRadius:'9px', cursor:'pointer', fontSize:'13.5px', fontWeight:'700', padding:'9px 18px', display:'flex', alignItems:'center', gap:'7px' }"><i class="ph ph-tag" style="font-size:16px;"></i>Kategori &amp; Vendor</button>
     </div>
@@ -30,7 +30,7 @@ defineProps({
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:24px;">
         <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0 0 4px;display:flex;align-items:center;gap:9px;"><i class="ph ph-address-book" style="color:#c39a4d;font-size:20px;"></i>Kontak</h3>
         <p style="font-size:13px;color:#8a93a5;margin:0 0 18px;">Tampil di tombol WhatsApp, footer, dan invoice.</p>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Nomor WhatsApp</label><input v-model="site.waNumber" placeholder="6281200000000" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;font-family:'IBM Plex Mono',monospace;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Email</label><input v-model="site.email" placeholder="halo@tourosa.id" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;"></div>
           <div><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Alamat / Kota</label><input v-model="site.address" placeholder="Jakarta, Indonesia" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;"></div>
@@ -41,7 +41,7 @@ defineProps({
         <h3 style="font-size:16px;font-weight:700;color:#13233f;margin:0 0 4px;display:flex;align-items:center;gap:9px;"><i class="ph ph-textbox" style="color:#c39a4d;font-size:20px;"></i>Hero &amp; Statistik</h3>
         <p style="font-size:13px;color:#8a93a5;margin:0 0 18px;">Subjudul dan angka pencapaian di halaman depan.</p>
         <div style="margin-bottom:16px;"><label style="display:block;font-size:12px;font-weight:600;color:#5f6b80;margin-bottom:6px;">Subjudul Hero</label><textarea v-model="site.tagline" rows="2" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:13.5px;color:#1a2235;background:#fff;outline:none;resize:vertical;line-height:1.5;"></textarea></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+        <div class="grid-cols-1-mobile" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
           <div v-for="(st, idx) in statEdit" :key="idx" style="background:#fafbfc;border:1px solid #eef0f3;border-radius:11px;padding:14px;">
             <input :value="st.n" @input="st.onN" placeholder="12+" style="width:100%;padding:9px 11px;border:1px solid #d8dce4;border-radius:8px;font-size:18px;font-weight:800;color:#13233f;background:#fff;outline:none;font-family:'IBM Plex Mono',monospace;margin-bottom:8px;">
             <input :value="st.l" @input="st.onL" placeholder="Keterangan" style="width:100%;padding:8px 11px;border:1px solid #d8dce4;border-radius:8px;font-size:13px;color:#5d6a82;background:#fff;outline:none;">
@@ -55,14 +55,14 @@ defineProps({
           <button @click="addClient" class="tr-btn" style="background:#eef3fb;color:#15294f;border:1px solid #d6e1f2;font-size:13px;font-weight:700;padding:9px 14px;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:6px;"><i class="ph ph-plus" style="font-size:15px;"></i>Tambah Klien</button>
         </div>
         <p style="font-size:13px;color:#8a93a5;margin:0 0 14px;">Unggah logo (PNG/JPG). Jika kosong, ditampilkan sebagai teks nama.</p>
-        <div v-for="(cl, idx) in clientsEdit" :key="idx" style="display:grid;grid-template-columns:130px 1fr 36px;gap:12px;align-items:center;padding:9px 0;border-top:1px solid #f1f2f5;">
-          <label style="cursor:pointer;display:block;">
+        <div v-for="(cl, idx) in clientsEdit" :key="idx" style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;padding:9px 0;border-top:1px solid #f1f2f5;">
+          <label style="cursor:pointer;display:block;flex-shrink:0;">
             <!-- Dummy input mapping for files -->
             <img v-if="cl.hasImg" :src="cl.img" style="height:44px;width:130px;object-fit:contain;border:1px solid #e2e4ea;border-radius:8px;background:#fafbfc;display:block;">
             <div v-if="cl.notImg" style="height:44px;border:1px dashed #cfd3da;border-radius:8px;display:flex;align-items:center;justify-content:center;gap:6px;font-size:11.5px;color:#9aa0ad;font-weight:600;"><i class="ph ph-upload-simple" style="font-size:15px;"></i>Upload Logo</div>
             <input type="file" accept="image/*" @change="cl.onLogo" style="display:none;">
           </label>
-          <input :value="cl.name" @input="cl.onName" placeholder="Nama klien" style="width:100%;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;">
+          <input :value="cl.name" @input="cl.onName" placeholder="Nama klien" style="flex:1;min-width:150px;padding:11px 13px;border:1px solid #d8dce4;border-radius:9px;font-size:14px;color:#1a2235;background:#fff;outline:none;">
           <button @click="cl.onRemove" class="tr-btn" style="background:none;border:none;cursor:pointer;color:#c2603a;padding:6px;display:flex;align-items:center;justify-content:center;"><i class="ph ph-trash" style="font-size:17px;"></i></button>
         </div>
       </div>
