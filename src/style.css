@@ -1,18 +1,25 @@
 * { box-sizing: border-box; }
 
-html { 
+html, body { 
   margin: 0; 
   padding: 0;
-  overflow-x: hidden;
-  overflow-y: scroll; /* Satu scrollbar tetap di sini */
+  overflow-x: clip; /* Blokir horizontal scroll di semua kondisi */
   width: 100%;
+  max-width: 100%;
+}
+
+html {
+  overflow-y: scroll; /* Satu scrollbar vertikal */
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  overflow: visible; /* Tidak ada scrollbar kedua */
+  overflow-y: visible; /* Konten mengalir vertikal, scroll diurus html */
+}
+
+#app {
+  overflow-x: hidden;
   width: 100%;
+  max-width: 100%;
 }
 
 body {

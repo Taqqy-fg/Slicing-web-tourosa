@@ -1,3 +1,9 @@
+/* --- Prevent horizontal overflow on all sections --- */
+section, header, footer {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
 /* --- Layout & Typography Tweaks --- */
 .hero-h1 { font-size: 55px; line-height: 1.05; letter-spacing: -0.025em; font-weight: 800; color: #13233f; margin: 0 0 22px; }
 .hero-p { font-size: 18px; line-height: 1.6; color: #52607a; margin: 0 0 32px; max-width: 480px; }

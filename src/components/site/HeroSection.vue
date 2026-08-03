@@ -43,7 +43,7 @@ const getSuffix = (str) => {
         <div class="hero-img-box" style="width:100%;height:480px;border-radius:20px;box-shadow:0 30px 60px -24px rgba(21,41,79,.4);overflow:hidden;">
             <img src="/assets/Foto_grup_destinasi.png" alt="Foto grup destinasi Tourosa" style="width:100%;height:100%;object-fit:cover;display:block;">
         </div>
-        <div data-aos="zoom-in" data-aos-delay="500" style="position:absolute;left:-16px;bottom:34px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 22px 44px -16px rgba(21,41,79,.4);border:1px solid #f0eee6;width:248px;">
+        <div data-aos="zoom-in" data-aos-delay="500" class="hero-float-card" style="position:absolute;left:-16px;bottom:34px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 22px 44px -16px rgba(21,41,79,.4);border:1px solid #f0eee6;width:248px;">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
             <div style="width:34px;height:34px;border-radius:9px;background:#eef3fb;display:flex;align-items:center;justify-content:center;"><i class="ph-fill ph-airplane-tilt" style="font-size:18px;color:#15294f;"></i></div>
             <div><div style="font-size:13px;font-weight:700;color:#13233f;">Bali Corporate Gathering</div><div style="font-size:11px;color:#8a93a5;font-family:'IBM Plex Mono',monospace;">INV/TRS/2026/0007</div></div>
@@ -94,6 +94,15 @@ const getSuffix = (str) => {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px 16px;
+  }
+}
+
+/* On small screens, clamp the floating card so it doesn't overflow left edge */
+@media (max-width: 1024px) {
+  .hero-float-card {
+    left: 8px !important;
+    width: calc(100% - 16px) !important;
+    max-width: 248px !important;
   }
 }
 </style>
