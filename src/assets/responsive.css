@@ -1,7 +1,7 @@
 /* --- Prevent horizontal overflow on all sections --- */
 section, footer {
   max-width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* --- Layout & Typography Tweaks --- */

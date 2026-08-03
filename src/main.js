@@ -15,6 +15,9 @@ const isMobile = window.innerWidth <= 768;
 AOS.init({
   duration: isMobile ? 500 : 800,
   once: true,
-  offset: isMobile ? 0 : 100
+  offset: isMobile ? 0 : 100,
+  easing: 'ease-out-cubic',
+  disableMutationObserver: false,
+  mirror: false,
 })
 

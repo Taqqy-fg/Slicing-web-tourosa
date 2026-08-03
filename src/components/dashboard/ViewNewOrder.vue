@@ -40,7 +40,7 @@ defineProps({
             <div class="table-header-mobile" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;padding:0 2px 9px;font-size:11px;font-weight:700;color:#9aa0ad;text-transform:uppercase;letter-spacing:.03em;">
               <span>Kategori</span><span>Vendor/Produk</span><span>Deskripsi</span><span>Qty</span><span>Beli</span><span>Jual</span><span style="text-align:right;">Jumlah</span><span></span>
             </div>
-            <div v-for="(r, idx) in itemRows" :key="idx" class="table-row-mobile" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;align-items:center;padding:6px 2px;">
+            <div v-for="(r, idx) in itemRows" :key="idx" class="table-row-mobile invoice-item-row-mobile" style="display:grid;grid-template-columns:106px 118px 1fr 42px 100px 100px 86px 26px;gap:10px;align-items:center;padding:6px 2px;">
           <select class="col-half-mobile" @change="r.onCat" :value="r.cat" style="width:100%;padding:9px 7px;border:1px solid #d8dce4;border-radius:8px;font-size:12.5px;color:#1a2235;background:#fff;outline:none;">
             <option v-for="(co, ci) in catOptions" :key="ci" :value="co">{{ co }}</option>
           </select>

@@ -11,7 +11,7 @@ defineProps({
 
 <template>
   <div class="p-mobile" style="padding:30px 32px;">
-    <div class="grid-cols-2-mobile" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px;">
+    <div class="stats-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:22px;">
       <div style="background:#fff;border:1px solid #e8e9ee;border-radius:16px;padding:22px;">
         <div style="width:42px;height:42px;border-radius:11px;background:#eef3fb;display:flex;align-items:center;justify-content:center;margin-bottom:16px;"><i class="ph-fill ph-wallet" style="font-size:21px;color:#15294f;"></i></div>
         <div style="font-size:22px;font-weight:800;color:#13233f;font-family:'IBM Plex Mono',monospace;line-height:1.1;">{{ repRevenueF }}</div>

@@ -39,10 +39,12 @@
     <div data-aos="zoom-in" class="extra-services-container">
       <div class="extra-services-list">
         <span class="es-label">Juga tersedia:</span>
-        <span class="es-item"><i class="ph ph-identification-card" style="color:#c39a4d;font-size:18px;"></i>Visa &amp; Dokumen</span>
-        <span class="es-item"><i class="ph ph-van" style="color:#c39a4d;font-size:18px;"></i>Sewa Transport</span>
-        <span class="es-item"><i class="ph ph-bowl-food" style="color:#c39a4d;font-size:18px;"></i>Konsumsi &amp; Catering</span>
-        <span class="es-item"><i class="ph ph-shield-check" style="color:#c39a4d;font-size:18px;"></i>Travel Insurance</span>
+        <div class="es-items-wrapper">
+          <span class="es-item"><i class="ph ph-identification-card" style="color:#c39a4d;font-size:18px;"></i>Visa &amp; Dokumen</span>
+          <span class="es-item"><i class="ph ph-van" style="color:#c39a4d;font-size:18px;"></i>Sewa Transport</span>
+          <span class="es-item"><i class="ph ph-bowl-food" style="color:#c39a4d;font-size:18px;"></i>Konsumsi &amp; Catering</span>
+          <span class="es-item"><i class="ph ph-shield-check" style="color:#c39a4d;font-size:18px;"></i>Travel Insurance</span>
+        </div>
       </div>
     </div>
   </section>
@@ -57,16 +59,22 @@
 }
 .extra-services-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 20px;
-  text-align: center;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+}
+.es-items-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 14px 28px;
+  align-items: center;
 }
 .es-label {
   font-size: 14px;
   color: #aeb8cc;
   font-weight: 500;
-  margin-bottom: 4px;
 }
 .es-item {
   font-size: 16px;
@@ -80,4 +88,16 @@
   font-size: 20px;
 }
 
+@media (max-width: 600px) {
+  .extra-services-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .es-items-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+}
 </style>
