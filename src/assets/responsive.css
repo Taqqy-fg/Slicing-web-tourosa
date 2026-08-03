@@ -1,5 +1,5 @@
 /* --- Prevent horizontal overflow on all sections --- */
-section, header, footer {
+section, footer {
   max-width: 100%;
   overflow-x: hidden;
 }

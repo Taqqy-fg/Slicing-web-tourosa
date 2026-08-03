@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, nextTick } from 'vue'
 import { useDashboardData } from '../composables/useDashboardData'
 
 import DashSidebar from '../components/dashboard/DashSidebar.vue'
@@ -16,9 +16,16 @@ const { state, blankForm, fmt, fmtNum, fmtDate, fmtShort, calc, statusMeta } = u
 
 const isSidebarOpen = ref(false)
 
+const mainScroll = ref(null)
+
 // Routing / View toggles inside dashboard
 const setView = (view) => {
   state.dashView = view
+  nextTick(() => {
+    if (mainScroll.value) {
+      mainScroll.value.scrollTop = 0
+    }
+  })
 }
 
 const goNew = () => setView('new')
@@ -356,7 +363,7 @@ const addCat = () => { state.catalog.push({ cat: 'Kategori Baru', items: [] }) }
     <DashSidebar :nav-items="navItems" :is-open="isSidebarOpen" @close="isSidebarOpen = false" />
     <div class="sidebar-backdrop" :class="{ open: isSidebarOpen }" @click="isSidebarOpen = false"></div>
 
-    <main style="flex:1;min-width:0;display:flex;flex-direction:column;height:100vh;overflow-y:auto;">
+    <main style="flex:1;min-width:0;display:flex;flex-direction:column;height:100%;">
       <DashTopbar 
         :page-title="pm[0]" 
         :page-sub="pm[1]" 
@@ -365,7 +372,7 @@ const addCat = () => { state.catalog.push({ cat: 'Kategori Baru', items: [] }) }
         @toggle-sidebar="isSidebarOpen = !isSidebarOpen"
       />
 
-      <div style="flex:1;">
+      <div ref="mainScroll" style="flex:1;overflow-y:auto;position:relative;">
 
         <ViewOverview v-if="state.dashView === 'overview'" 
           :s-orders="sOrders"
