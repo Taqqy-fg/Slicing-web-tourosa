@@ -9,7 +9,7 @@ html, body {
 }
 
 html {
-  overflow-y: scroll; /* Satu scrollbar vertikal */
+  overflow-y: auto; 
 }
 
 body {
